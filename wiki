@@ -1,0 +1,16 @@
+#!/usr/bin/env python3
+import webbrowser
+
+languages = {
+	
+	"en" : "English",
+	"es" : "Spanish",
+	"run" : "Russian",
+	"pl" : "Polish",
+	"simple" : "Simple English Wikipedia"
+}
+
+#default language is English
+usage = "Usage: wiki [-l language]"
+
+webbrowser.open_new_tab('https://www.w3schools.com/python/python_dictionaries.asp') 
