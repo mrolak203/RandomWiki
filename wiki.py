@@ -4,7 +4,6 @@ import sys
 import requests
 import re
 
-
 def open_url(url):
 
 	webbrowser.open_new_tab(url) 
@@ -43,8 +42,6 @@ def category_article(category):
 	url = 'https://en.wikipedia.org/wiki/'+article_name
 	open_url(url)
 
-
-
 languages = {
 	
 	"en" : "English",
@@ -53,7 +50,6 @@ languages = {
 	"pl" : "Polish",
 	"simple" : "Simple English Wikipedia"
 }
-
 
 usage = "Usage: wiki.py [language] [search_term]"
 
@@ -72,41 +68,3 @@ if len(sys.argv) - 1 > 0:
 		category = sys.argv[1]
 		category_article(category)
 
-#S = requests.Session()
-
-params = {
-
-	"action": "query",
-    "cmtitle": "Category:"+category,
-    "list": "categorymembers",
-    "format": "json",
-    "cmlimit": 400,
-    "cmsort": "timestamp"
-}
-
-#request = S.get(url='https://'+language+".wikipedia.org/w/api.php",params=params)
-
-#data = request.json()
-
-#PAGES = data["query"]["categorymembers"]
-
-#for page in PAGES:
-    #print(page["title"])
-
-
-#random_url = 'https://'+language+".wikipedia.org/wiki/Special:Random"
-
-
-
-# this link takes you to a random wikipedia page
-# however sometimes you get a Category page, instead of a article
-
-    #match = re.search('<title>Category:', line)
-
-
-#if first 
-
-
-#webbrowser.open_new_tab(random_url) 
-
-#https://randomincategory.toolforge.org/Technology?site=en.wikipedia.org
