@@ -3,5 +3,5 @@ Opens a random wikipedia article
 
 ## Usage
 
-  Usage: ./wiki [language]
+    Usage: ./wiki [language]
 
