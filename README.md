@@ -5,3 +5,6 @@ Opens a random wikipedia article
 
     Usage: wiki.py [language_code] [category]
 
+## Limitations
+
+category must be one word 
