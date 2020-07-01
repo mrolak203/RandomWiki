@@ -1,5 +1,5 @@
 # RandomWiki
-Opens a random wikipedia article in a user specified language or category using https://en.wikipedia.org/wiki/Special:Random and https://randomincategory.toolforge.org
+Opens a random wikipedia article in a specified language or category using https://en.wikipedia.org/wiki/Special:Random and https://randomincategory.toolforge.org
 
 ## Usage
 
