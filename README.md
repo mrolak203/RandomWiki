@@ -1,5 +1,5 @@
 # RandomWiki
-Opens a random wikipedia article 
+Opens a random wikipedia article in a user specified language or category 
 
 ## Usage
 
