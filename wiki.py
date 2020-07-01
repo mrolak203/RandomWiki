@@ -24,8 +24,10 @@ def category_article(category):
 
 	article_name = None
 
+# Non-article Wikipedia pages 
 	unwanted_titles = (b"Category", b"Portal", b"User", b"Contents")
 
+# Searches for the first page that is not in the unwanted_tiles list
 	while(article_name == None):
 
 		link = "https://randomincategory.toolforge.org/"+category+"?site=en.wikipedia.org"
@@ -33,23 +35,24 @@ def category_article(category):
 
 		for line in f.iter_lines():
 			if b'<title>' in line:
-
 				if any(word in line for word in unwanted_titles):
 					break;
 				else:
-					print(line)
 					article_name = line
 					break
 
+# Regex to remove HTML and get pure article title 
 	m = re.match(rb"^<title>([\w\s]*)",article_name)
 	article_name = m.group(1).strip()
 
+# Convert from 8-bit unicode to string 
 	article_name = article_name.decode("utf-8")
+
+# Replace spaces with underscore to transform into a new wikipedia url 
 	article_name = article_name.replace(" ","_")
 
 	url = 'https://en.wikipedia.org/wiki/'+article_name
 	open_url(url)
-
 
 #process language codes from language-codes.csv
 import csv
