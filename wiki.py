@@ -80,7 +80,6 @@ if len(sys.argv) - 1 == 0:
 
 #change default language if user enters arg
 elif len(sys.argv) - 1 == 1:
-	print('here')
 	if sys.argv[1] in languages: 
 		language = sys.argv[1]
 		random_article(language)
