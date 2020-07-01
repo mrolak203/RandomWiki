@@ -3,6 +3,9 @@ import webbrowser
 import sys
 import requests
 import re
+import os
+import errno
+from timeout import timeout
 
 # Opens a url in a new tab of the users browser
 def open_url(url):
@@ -19,7 +22,9 @@ def random_article(language):
 # Opens a random article in a specified category
 # This function uses https://randomincategory.toolforge.org to find a random page in a given category
 # Limitations: this tool searches English wikipedia, user cannot customize a language here
+# Operation will timeout in 5 seconds if category does not produce article  
 
+@timeout()
 def category_article(category):
 
 	article_name = None
@@ -67,17 +72,18 @@ with open('language-codes.csv', 'rt') as f:
 #default language is English
 language = 'en'
 
-#change default language if user enters arg
+
 if len(sys.argv) - 1 == 0:
 	random_article(language)
 
+
+#change default language if user enters arg
 if len(sys.argv) - 1 > 0:
 	if sys.argv[1] in languages: 
 		language = sys.argv[1]
 		if sys.argv[2]: category_article(sys.argv[2])
 		else: random_article(language)
 	else:
-		category = sys.argv[1]
-		category_article(category)
+		category_article(sys.argv[1])
 
 
