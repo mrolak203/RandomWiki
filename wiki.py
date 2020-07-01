@@ -4,18 +4,26 @@ import sys
 import requests
 import re
 
+# Opens a url in a new tab of the users browser
 def open_url(url):
 
 	webbrowser.open_new_tab(url) 
 
+# Opens a random article in a specified language, default language is English 
 def random_article(language):
 
 	if(language == None): language = 'en'
 	url = 'https://'+language+".wikipedia.org/wiki/Special:Random"
 	open_url(url)
 
+# Opens a random article in a specified category
+# This function uses https://randomincategory.toolforge.org to find a random page in a given category
+# Limitations: this tool searches English wikipedia, user cannot customize a language here
+
 def category_article(category):
+
 	article_name = None
+
 	unwanted_titles = (b"Category", b"Portal", b"User", b"Contents")
 
 	while(article_name == None):
@@ -42,7 +50,8 @@ def category_article(category):
 	url = 'https://en.wikipedia.org/wiki/'+article_name
 	open_url(url)
 
-#process language codes
+
+#process language codes from language-codes.csv
 import csv
 
 languages = []
@@ -52,20 +61,20 @@ with open('language-codes.csv', 'rt') as f:
     for row in reader:
     	 languages.append((row[0].split(',')[0]))
 
-usage = "Usage: wiki.py [language] [search_term]"
-
 #default language is English
 language = 'en'
 
 #change default language if user enters arg
-#if len(sys.argv) - 1 == 0:
-	#random_article(language)
+if len(sys.argv) - 1 == 0:
+	random_article(language)
 
 if len(sys.argv) - 1 > 0:
 	if sys.argv[1] in languages: 
 		language = sys.argv[1]
-		random_article(language)
+		if sys.argv[2]: category_article(sys.argv[2])
+		else: random_article(language)
 	else:
 		category = sys.argv[1]
 		category_article(category)
+
 
