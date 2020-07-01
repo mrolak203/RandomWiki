@@ -14,6 +14,7 @@ def open_url(url):
 
 # Opens a random article in a specified language, default language is English 
 def random_article(language):
+	print('here')
 
 	if(language == None): language = 'en'
 	url = 'https://'+language+".wikipedia.org/wiki/Special:Random"
@@ -22,7 +23,7 @@ def random_article(language):
 # Opens a random article in a specified category
 # This function uses https://randomincategory.toolforge.org to find a random page in a given category
 # Limitations: this tool searches English wikipedia, user cannot customize a language here
-# Operation will timeout in 8 seconds if category does not produce an article  
+# Operation will timeout in 5 seconds if category does not produce an article  
 @timeout()
 def category_article(category):
 
@@ -78,12 +79,15 @@ if len(sys.argv) - 1 == 0:
 	random_article(language)
 
 #change default language if user enters arg
-if len(sys.argv) - 1 > 0:
+elif len(sys.argv) - 1 == 1:
+	print('here')
 	if sys.argv[1] in languages: 
 		language = sys.argv[1]
-		if sys.argv[2]: category_article(sys.argv[2])
-		else: random_article(language)
+		random_article(language)
 	else:
 		category_article(sys.argv[1])
+else:
+	category_article(sys.argv[2])
+
 
 
