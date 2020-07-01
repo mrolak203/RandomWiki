@@ -22,7 +22,7 @@ def random_article(language):
 # Opens a random article in a specified category
 # This function uses https://randomincategory.toolforge.org to find a random page in a given category
 # Limitations: this tool searches English wikipedia, user cannot customize a language here
-# Operation will timeout in 5 seconds if category does not produce article  
+# Operation will timeout in 5 seconds if category does not produce an article  
 
 @timeout()
 def category_article(category):
@@ -72,10 +72,11 @@ with open('language-codes.csv', 'rt') as f:
 #default language is English
 language = 'en'
 
+#in the event of an error, this shortens Traceback output 
+sys.tracebacklimit = 0 
 
 if len(sys.argv) - 1 == 0:
 	random_article(language)
-
 
 #change default language if user enters arg
 if len(sys.argv) - 1 > 0:

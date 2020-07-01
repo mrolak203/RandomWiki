@@ -6,7 +6,8 @@ import signal
 class TimeoutError(Exception):
     pass
 
-def timeout(seconds=5, error_message=os.strerror(errno.ETIME)):
+# creates a decorator called @timeout which will timeout long running functions
+def timeout(seconds=5):
     def decorator(func):
         def _handle_timeout(signum, frame):
             raise TimeoutError("Operation Timeout, Try another Category")
