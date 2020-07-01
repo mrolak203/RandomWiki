@@ -1,7 +1,7 @@
 # RandomWiki
 Opens a random wikipedia article 
 
-#Usage
+## Usage
 
   Usage: ./wiki [language]
 
