@@ -6,7 +6,7 @@ import signal
 class TimeoutError(Exception):
     pass
 
-# creates a decorator called @timeout which will timeout long running functions
+# creates a decorator called @timeout which will timeout long running functions after 5 seconds
 def timeout(seconds=5):
     def decorator(func):
         def _handle_timeout(signum, frame):
