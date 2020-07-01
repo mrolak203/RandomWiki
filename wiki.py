@@ -22,7 +22,7 @@ def random_article(language):
 # Opens a random article in a specified category
 # This function uses https://randomincategory.toolforge.org to find a random page in a given category
 # Limitations: this tool searches English wikipedia, user cannot customize a language here
-# Operation will timeout in 5 seconds if category does not produce an article  
+# Operation will timeout in 8 seconds if category does not produce an article  
 @timeout()
 def category_article(category):
 
