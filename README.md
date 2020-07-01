@@ -3,5 +3,5 @@ Opens a random wikipedia article
 
 ## Usage
 
-    Usage: wiki.py [language]
+    Usage: wiki.py [language] [category]
 
