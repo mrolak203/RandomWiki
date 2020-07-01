@@ -8,3 +8,4 @@ Opens a random wikipedia article in a specified language or category using https
 ## Limitations
 
 category must be one word 
+if a category is specified the language will be English 
