@@ -7,4 +7,4 @@ Opens a random wikipedia article in a specified language or category using https
 
 ## Limitations
 
-Category must be one word.\
+Category must be one word.
