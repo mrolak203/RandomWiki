@@ -42,14 +42,15 @@ def category_article(category):
 	url = 'https://en.wikipedia.org/wiki/'+article_name
 	open_url(url)
 
-languages = {
-	
-	"en" : "English",
-	"es" : "Spanish",
-	"run" : "Russian",
-	"pl" : "Polish",
-	"simple" : "Simple English Wikipedia"
-}
+#process language codes
+import csv
+
+languages = []
+
+with open('language-codes.csv', 'rt') as f:
+    reader = csv.reader(f,delimiter="\n")
+    for row in reader:
+    	 languages.append((row[0].split(',')[0]))
 
 usage = "Usage: wiki.py [language] [search_term]"
 
@@ -57,8 +58,8 @@ usage = "Usage: wiki.py [language] [search_term]"
 language = 'en'
 
 #change default language if user enters arg
-if len(sys.argv) - 1 == 0:
-	random_article(language)
+#if len(sys.argv) - 1 == 0:
+	#random_article(language)
 
 if len(sys.argv) - 1 > 0:
 	if sys.argv[1] in languages: 
